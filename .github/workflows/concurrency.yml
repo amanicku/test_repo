@@ -1,0 +1,11 @@
+name: Test Concurrency
+on: [workflow_dispatch]
+concurrency:
+  group: test
+  cancel-in-progress: false
+jobs:
+  long-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 300 # Run for 5 minutes
+
